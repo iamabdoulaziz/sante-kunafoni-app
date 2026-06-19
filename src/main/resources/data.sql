@@ -1,3 +1,7 @@
+CREATE DATABASE santekunafoni;
+use santekunafoni;
+
+
 CREATE TABLE utilisateur (
                              idUtilisateur INT AUTO_INCREMENT PRIMARY KEY,
                              nom VARCHAR(255) NOT NULL,
