@@ -10,7 +10,7 @@ import lombok.Data;
     @Table(name="symptome")
     public class Symptome{
         @Id
-        private long  Id;
-        private String Nom;
-        private String Description;
+        private long  id;
+        private String nom;
+        private String description;
     }
