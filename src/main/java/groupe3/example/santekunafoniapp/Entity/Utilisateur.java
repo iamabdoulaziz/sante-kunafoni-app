@@ -1,10 +1,11 @@
-package groupe3.example.santekunafoniapp.entity;
+package groupe3.example.santekunafoniapp.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 import javax.management.Notification;
 import java.util.List;
+import groupe3.example.santekunafoniapp.Entity.Role;
 
 @Entity
 @Data
