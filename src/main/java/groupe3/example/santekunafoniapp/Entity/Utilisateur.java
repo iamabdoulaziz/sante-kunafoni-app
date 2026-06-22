@@ -14,5 +14,19 @@ public class Utilisateur {
     private String prenom;
     private String tel;
     private String motpass;
-    private role role;
+    private Role role;
+
+    // Constructeur sans paramètres
+    public Utilisateur(){
+
+    }
+
+    // Constructeur avec paramètres
+    public Utilisateur(Long idUtilisateur, String nom, String prenom, String tel, String motpass, Role role){
+        this.idUtilisateur = idUtilisateur;
+        this.nom = nom;
+
+    }
+
+
 }
