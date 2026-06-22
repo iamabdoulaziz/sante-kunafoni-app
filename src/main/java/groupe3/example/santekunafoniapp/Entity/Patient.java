@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name="patient")
-public class Patient {
+public class Patient extends Utilisateur {
     @Id
     private int idUtilisateur;
     private String localite;
