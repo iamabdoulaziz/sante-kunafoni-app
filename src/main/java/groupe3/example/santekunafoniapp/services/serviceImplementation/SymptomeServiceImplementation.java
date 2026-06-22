@@ -25,7 +25,7 @@ public class SymptomeServiceImplementation implements SymptomeServiceInterface {
     public Symptome getSymptomeById(Long id) {
         return repository.findById()
                 .orElseThrow(() ->
-                        new RuntimeException("Symptôme introuvable"))
+                        new RuntimeException("Symptôme introuvable"));
     }
 
     @Override
