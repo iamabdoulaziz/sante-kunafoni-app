@@ -14,13 +14,14 @@ public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idNotif")
     private Long id;
-    private String titre;
-    private String message;
-    private LocalDateTime datePublication;
-    private boolean lue;
 
-    @ManyToOne
-    @JoinColumn(name = "utilisateur_id")
-    private Utilisateur utilisateur;
+    @Column(nullable = false)
+    private String titre;
+
+    private LocalDateTime datePublication;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String message;
 }

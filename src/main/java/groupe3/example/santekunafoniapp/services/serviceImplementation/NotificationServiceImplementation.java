@@ -1,24 +1,28 @@
-package groupe3.example.santekunafoniapp.Service;
+package groupe3.example.santekunafoniapp.services.serviceImplementation;
 
 import groupe3.example.santekunafoniapp.Entity.Notification;
 import groupe3.example.santekunafoniapp.Repository.NotificationRepository;
+import groupe3.example.santekunafoniapp.services.serviceInterface.NotificationServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class NotificationServiceImplementation implements NotificationService {
+public class NotificationServiceImplementation implements NotificationServiceInterface {
 
-    private final NotificationRepository notificationRepository;
-
-    // Injection via constructeur (recommandé)
     @Autowired
-    public NotificationServiceImplementation(NotificationRepository notificationRepository) {
-        this.notificationRepository = notificationRepository;
+    private NotificationRepository repository;
+
+    @Override
+    public Notification envoyerNotification(Notification notif) {
+        notif.setDatePublication(LocalDateTime.now());
+        return repository.save(notif);
     }
 
-    // Vos méthodes implémentées...
-    public List<Notification> getNotificationsByUtilisateur(Long utilisateurId) {
-        return notificationRepository.findByUtilisateur_Id(utilisateurId);
+    @Override
+    public List<Notification> getAllNotifications() {
+        return repository.findAll();
     }
 }

@@ -4,6 +4,7 @@ import groupe3.example.santekunafoniapp.Entity.Notification;
 import groupe3.example.santekunafoniapp.services.serviceInterface.NotificationServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -14,17 +15,12 @@ public class NotificationController {
     private NotificationServiceInterface service;
 
     @PostMapping
-    public Notification creerNotification(@RequestBody Notification notif) {
+    public Notification envoyerNotification(@RequestBody Notification notif) {
         return service.envoyerNotification(notif);
     }
 
-    @GetMapping("/utilisateur/{userId}")
-    public List<Notification> getByUtilisateur(@PathVariable Long userId) {
-        return service.getNotificationsByUtilisateur(userId);
-    }
-
-    @PatchMapping("/{id}/read")
-    public void marquerLue(@PathVariable Long id) {
-        service.marquerCommeLue(id);
+    @GetMapping
+    public List<Notification> getAllNotifications() {
+        return service.getAllNotifications();
     }
 }
