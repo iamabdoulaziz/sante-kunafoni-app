@@ -1,7 +1,7 @@
 package groupe3.example.santekunafoniapp.controller;
 
 import groupe3.example.santekunafoniapp.DTO.SymptomeMaladieDTO;
-import groupe3.example.santekunafoniapp.services.SymptomeMaladieService;
+import groupe3.example.santekunafoniapp.services.serviceInterface.SymptomeMaladieService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
