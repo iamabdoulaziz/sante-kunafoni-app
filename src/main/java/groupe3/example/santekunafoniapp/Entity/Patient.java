@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Data
-public class patient {
+public class Patient {
     @Id
     private int idUtilisateur;
     private String localite;

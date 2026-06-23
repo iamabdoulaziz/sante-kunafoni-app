@@ -1,7 +1,7 @@
 package groupe3.example.santekunafoniapp.controller;
 
 import groupe3.example.santekunafoniapp.Entity.PatientSymptome;
-import groupe3.example.santekunafoniapp.services.PatientSymptomeService;
+import groupe3.example.santekunafoniapp.services.serviceInterface.PatientSymptomeServiceInterface;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
 @RequestMapping("/api/patient-symptome")
 public class PatientSymptomeController {
 
-    private final PatientSymptomeService service;
+    private final PatientSymptomeServiceInterface service;
 
-    public PatientSymptomeController(PatientSymptomeService service) {
+    public PatientSymptomeController(PatientSymptomeServiceInterface service) {
         this.service = service;
     }
 
