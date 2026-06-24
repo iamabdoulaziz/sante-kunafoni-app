@@ -1,42 +1,56 @@
 package groupe3.example.santekunafoniapp.controller;
 
-import groupe3.example.santekunafoniapp.DTO.UtilisateurDTO;
-import groupe3.example.santekunafoniapp.Repository.AdministrateurRepository;
+import groupe3.example.santekunafoniapp.DTO.AdministrateurDTO;
 import groupe3.example.santekunafoniapp.services.serviceInterface.AdministrateurServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/administrateurs")
 public class AdministrateurController {
-    @Autowired
-    private final AdministrateurServiceInterface administrateurServiceInterface;
 
-    public AdministrateurController(AdministrateurServiceInterface administrateurServiceInterface) {
-        this.administrateurServiceInterface = administrateurServiceInterface;
+    private final AdministrateurServiceInterface administrateurService;
+
+
+    public AdministrateurController(AdministrateurServiceInterface administrateurService) {
+        this.administrateurService = administrateurService;
     }
+
 
     @PostMapping
-    public UtilisateurDTO ajouter(@RequestBody UtilisateurDTO dto){
-        return administrateurServiceInterface.ajouterUtilisateur(dto);
+    public AdministrateurDTO ajouter(@RequestBody AdministrateurDTO dto){
+        return administrateurService.ajouter(dto);
     }
+
+
     @GetMapping
-    public List<UtilisateurDTO>afficherTous(){
-        return administrateurServiceInterface.afficherUtilisateurs();
+    public List<AdministrateurDTO> afficherTous(){
+        return administrateurService.afficherTous();
     }
+
+
     @GetMapping("/{id}")
-    public UtilisateurDTO afficherParId(@PathVariable Long id){
-        return administrateurServiceInterface.afficherUtilisateurParId(id);
+    public AdministrateurDTO afficherParId(@PathVariable Long id){
+        return administrateurService.afficherParId(id);
     }
+
+
     @PutMapping("/{id}")
-    public UtilisateurDTO modifier(@PathVariable Long id ,@RequestBody UtilisateurDTO dto){
-        return administrateurServiceInterface.modifierUtilisateur(id,dto);
+    public AdministrateurDTO modifier(
+            @PathVariable Long id,
+            @RequestBody AdministrateurDTO dto){
+
+        return administrateurService.modifier(id,dto);
     }
+
+
     @DeleteMapping("/{id}")
     public void supprimer(@PathVariable Long id){
-        administrateurServiceInterface.supprimerUtilisateur(id);
+
+        administrateurService.supprimer(id);
     }
+
 }

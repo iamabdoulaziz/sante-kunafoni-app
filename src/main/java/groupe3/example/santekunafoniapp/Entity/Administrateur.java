@@ -1,20 +1,25 @@
 package groupe3.example.santekunafoniapp.Entity;
 
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+
 @Entity
-@Table(name = "Administrateur")
+@Table(name="administrateur")
 @Data
-public class Administrateur extends Utilisateur{
+@PrimaryKeyJoinColumn(name = "idUtilisateur")
+public class Administrateur extends Utilisateur {
+
+    @Column(unique = true)
     private String email;
-    public Administrateur(){}
-    public String getEmail(){
-        return email;
+
+
+    public Administrateur(){
+
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
