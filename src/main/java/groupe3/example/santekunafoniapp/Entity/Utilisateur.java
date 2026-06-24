@@ -25,7 +25,7 @@ public abstract class Utilisateur {
     private String prenom;
     private String tel;
     private String motpass;
-
+    private Role role;
     }
 
     // Constructeur avec paramètres
