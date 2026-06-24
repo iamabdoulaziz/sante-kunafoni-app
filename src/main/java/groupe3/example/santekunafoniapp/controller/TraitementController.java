@@ -2,7 +2,7 @@ package groupe3.example.santekunafoniapp.controller;
 
 import groupe3.example.santekunafoniapp.DTO.TraitementDTO;
 import groupe3.example.santekunafoniapp.Entity.Traitement;
-import groupe3.example.santekunafoniapp.services.serviceImplementation.TraitementService;
+import groupe3.example.santekunafoniapp.services.serviceImplementation.TraitementServiceImplementation;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -11,9 +11,9 @@ import java.util.List;
 @RequestMapping("/api/traitements")
 public class TraitementController {
 
-    private final TraitementService service;
+    private final TraitementServiceImplementation service;
 
-    public TraitementController(TraitementService service) {
+    public TraitementController(TraitementServiceImplementation service) {
         this.service = service;
     }
 

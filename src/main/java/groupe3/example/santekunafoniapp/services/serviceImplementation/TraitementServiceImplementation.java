@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TraitementService implements TraitementServiceInterface {
+public class TraitementServiceImplementation implements TraitementServiceInterface {
 
     private final TraitementRepository repository;
-    public TraitementService(TraitementRepository repository) {
+    public TraitementServiceImplementation(TraitementRepository repository) {
         this.repository = repository;
     }
 
