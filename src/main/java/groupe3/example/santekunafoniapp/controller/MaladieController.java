@@ -51,6 +51,14 @@ public class MaladieController {
         return new ResponseEntity<>(updatedMaladie, HttpStatus.OK);
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<MaladieDTO> partialUpdateMaladie(@PathVariable("id") Long id, @RequestBody MaladieDTO maladieDTO) {
+        //  Nom modifié ici pour éviter la duplication + appel à une méthode "patch" du service
+        MaladieDTO updatedMaladie = maladieServiceInterface.partialUpdateMaladie(id, maladieDTO);
+        return new ResponseEntity<>(updatedMaladie, HttpStatus.OK);
+    }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMaladie(@PathVariable("id") Long id) {
