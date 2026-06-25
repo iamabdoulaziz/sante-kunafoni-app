@@ -1,9 +1,19 @@
 package groupe3.example.santekunafoniapp.Entity;
 
+
 import jakarta.persistence.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Traitement {
 
     @Id
@@ -11,55 +21,21 @@ public class Traitement {
     private Long idTraitement;
 
     private String nomTraitement;
-
     private LocalDate datedebut;
-
     private LocalDate datefin;
-
     private String description;
 
-    public Traitement() {
+    @ManyToOne
+    @JoinColumn(name = "id_maladie")
+    private Maladie maladie;
 
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_patient")
+    private Patient patient;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_agent_sante")
+    private AgentSante agentSante;
 
-    public Long getIdTraitement() {
-        return idTraitement;
-    }
-
-    public void setIdTraitement(Long idTraitement) {
-        this.idTraitement = idTraitement;
-    }
-
-    public String getNomTraitement() {
-        return nomTraitement;
-    }
-
-    public void setNomTraitement(String nomTraitement) {
-        this.nomTraitement = nomTraitement;
-    }
-
-    public LocalDate getDatedebut() {
-        return datedebut;
-    }
-
-    public void setDatedebut(LocalDate datedebut) {
-        this.datedebut = datedebut;
-    }
-
-    public LocalDate getDatefin() {
-        return datefin;
-    }
-
-    public void setDatefin(LocalDate datefin) {
-        this.datefin = datefin;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 }

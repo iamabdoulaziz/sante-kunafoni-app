@@ -1,19 +1,28 @@
 package groupe3.example.santekunafoniapp.Entity;
 
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 
 @Entity
-@Table(name = "Administrateur")
+@Table(name="administrateur")
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class Administrateur extends Utilisateur{
-    private String email;
-    public Administrateur(){}
+@PrimaryKeyJoinColumn(name = "idUtilisateur")
+public class Administrateur extends Utilisateur {
 
-    public void setEmail(String email) {
-        this.email = email;
+    @Column(unique = true)
+    private String email;
+
+
+    public Administrateur(){
+
     }
+
 }

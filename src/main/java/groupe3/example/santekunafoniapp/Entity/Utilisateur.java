@@ -2,16 +2,15 @@ package groupe3.example.santekunafoniapp.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.List;
-import groupe3.example.santekunafoniapp.Entity.Role;
-import groupe3.example.santekunafoniapp.Entity.Notification;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "utilisateur")
 public abstract class Utilisateur {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUtilisateur;
@@ -20,10 +19,11 @@ public abstract class Utilisateur {
     private String tel;
     private String motpass;
 
-    }
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     // Constructeur avec paramètres
-    public Utilisateur(Long idUtilisateur, String nom, String prenom, String tel, String motpass, Role role){
+    public Utilisateur(Long idUtilisateur, String nom, String prenom, String tel, String motpass, Role role) {
         this.idUtilisateur = idUtilisateur;
         this.nom = nom;
         this.prenom = prenom;
