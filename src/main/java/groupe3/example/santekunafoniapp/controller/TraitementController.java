@@ -36,13 +36,11 @@ public class TraitementController {
         return service.getTraitementById(id)
                 .orElseThrow(() -> new RuntimeException("Traitement non trouvé"));
     }
-
     @Operation(summary = "Modifier un traitement", description = "Cette methode permet de modifier un traitement spécifique !")
     @PutMapping("/{id}")
     public Traitement modifier(@PathVariable Long id, @RequestBody TraitementDTO traitementDTO) {
         return service.modifierTraitement(id, traitementDTO);
     }
-
     @Operation(summary = "Supprimer un traitement", description = "Cette methode permet de supprimer un traitement !")
     @DeleteMapping("/{id}")
     public String supprimer(@PathVariable Long id) {
